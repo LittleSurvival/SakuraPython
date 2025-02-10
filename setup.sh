@@ -2,7 +2,7 @@
 !rm -rf ./llama.cpp
 
 !echo 准备编译llama.cpp...
-!git clone -q -c advice.detachedHead=false -b b2859 --depth 1 https://github.com/ggerganov/llama.cpp.git
+!git clone -q -c advice.detachedHead=false -b b3855 --depth 1 https://github.com/ggerganov/llama.cpp.git
 !cp -r /usr/local/cuda-12.1/targets /usr/local/nvidia/
 
 !echo 开始编译llama.cpp...

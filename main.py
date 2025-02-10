@@ -1,8 +1,6 @@
 NGROK_TOKEN = ""
 REPO = "SakuraLLM/Sakura-14B-Qwen2beta-v0.9.2-GGUF"
 MODEL = "sakura-14b-qwen2beta-v0.9.2-iq4xs.gguf"
-# REPO = "SakuraLLM/Sakura-32B-Qwen2beta-v0.9.1-GGUF"
-# MODEL = "sakura-32b-qwen2beta-v0.9.1-iq4xs.gguf"
 DOUBLE = False
 
 model_dir = "/kaggle/working/llama.cpp/models/"
@@ -85,14 +83,16 @@ def run_server(param):
     pos, port = param
     p = subprocess.Popen(
         [
-            "/kaggle/working/llama.cpp/server",
+            "/kaggle/working/llama.cpp/llama-server",
             "-m",
             f"{model_dir}/{MODEL}",
             "-ngl",
             "99",
             "-c",
-            "4096",
+            "12288",
             "-a",
+            "-np",
+            "6",
             MODEL.removesuffix(".guff"),
             "--port",
             port,
